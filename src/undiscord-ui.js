@@ -62,7 +62,10 @@ function initUI() {
   ui.undiscordBtn = createElm(buttonHtml);
   ui.undiscordBtn.onclick = toggleWindow;
   function mountBtn() {
-    const toolbar = document.querySelector('#app-mount [class*="-toolbar"]');
+    const toolbar = document.querySelector('#app-mount [class*="toolbar"]')
+      || document.querySelector('[class*="toolBar"]')
+      || document.querySelector('[class*="chat"]')
+      || document.body;
     if (toolbar) toolbar.appendChild(ui.undiscordBtn);
   }
   mountBtn();
